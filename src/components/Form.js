@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 export default class Form extends Component {
   render() {
+    const { cardName, onInputChange } = this.props;
+    console.log(cardName);
     return (
       <div>
         <form>
@@ -12,6 +14,8 @@ export default class Form extends Component {
               type="text"
               data-testid="name-input"
               placeholder="Placeholder"
+              value={ cardName }
+              onChange={ onInputChange }
             />
           </label>
 
