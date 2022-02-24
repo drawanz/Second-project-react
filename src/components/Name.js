@@ -5,7 +5,12 @@ export default class NameInput extends Component {
     return (
       <label htmlFor="nameInput">
         Nome da carta:
-        <input id="nameInput" type="text" data-testid="name-input" />
+        <input
+          id="nameInput"
+          type="text"
+          data-testid="name-input"
+          placeholder="Placeholder"
+        />
       </label>
     );
   }

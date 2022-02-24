@@ -4,6 +4,8 @@ import DescriptionInput from './Description';
 import Atributo from './Atributo';
 import Image from './Image';
 import Raridade from './Raridade';
+import SuperTrunfo from './SuperTrunfo';
+import Button from './Button';
 
 export default class Form extends Component {
   render() {
@@ -15,6 +17,8 @@ export default class Form extends Component {
           <Atributo />
           <Image />
           <Raridade />
+          <SuperTrunfo />
+          <Button />
         </form>
       </div>
     );
