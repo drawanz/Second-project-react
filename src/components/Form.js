@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Form extends Component {
   render() {
@@ -11,7 +12,7 @@ export default class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      hasTrunfo,
+      // hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
@@ -24,6 +25,7 @@ export default class Form extends Component {
             Nome da carta:
             <input
               id="nameInput"
+              name="cardName"
               type="text"
               data-testid="name-input"
               placeholder="Placeholder"
@@ -35,6 +37,7 @@ export default class Form extends Component {
           <label htmlFor="descriptionInput">
             Descrição da carta:
             <textarea
+              name="cardDescription"
               id="descriptionInput"
               type="text"
               data-testid="description-input"
@@ -43,10 +46,11 @@ export default class Form extends Component {
             />
           </label>
 
-          <label htmlFor="atributoInput">
+          <label htmlFor="atributoInput1">
             Atributo 1 da carta:
             <input
-              id="atributoInput"
+              name="cardAttr1"
+              id="atributoInput1"
               type="number"
               data-testid="attr1-input"
               value={ cardAttr1 }
@@ -54,10 +58,11 @@ export default class Form extends Component {
             />
           </label>
 
-          <label htmlFor="atributoInput">
+          <label htmlFor="atributoInput2">
             Atributo 2 da carta:
             <input
-              id="atributoInput"
+              name="cardAttr2"
+              id="atributoInput2"
               type="number"
               data-testid="attr2-input"
               value={ cardAttr2 }
@@ -65,10 +70,11 @@ export default class Form extends Component {
             />
           </label>
 
-          <label htmlFor="atributoInput">
+          <label htmlFor="atributoInput3">
             Atributo 3 da carta:
             <input
-              id="atributoInput"
+              name="cardAttr3"
+              id="atributoInput3"
               type="number"
               data-testid="attr3-input"
               value={ cardAttr3 }
@@ -79,6 +85,7 @@ export default class Form extends Component {
           <label htmlFor="imageInput">
             URL da imagem:
             <input
+              name="cardImage"
               id="imageInput"
               type="text"
               data-testid="image-input"
@@ -90,6 +97,7 @@ export default class Form extends Component {
           <label htmlFor="rareInput">
             Raridade da carta:
             <select
+              name="cardRare"
               id="rareInput"
               type="text"
               data-testid="rare-input"
@@ -104,6 +112,7 @@ export default class Form extends Component {
 
           <label htmlFor="SuperTrunfo">
             <input
+              name="cardTrunfo"
               id="SuperTrunfo"
               type="checkbox"
               data-testid="trunfo-input"
@@ -137,7 +146,7 @@ Form.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  hasTrunfo: PropTypes.bool.isRequired,
+  // hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.string.isRequired,
   onSaveButtonClick: PropTypes.string.isRequired,
