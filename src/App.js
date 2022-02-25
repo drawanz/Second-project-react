@@ -7,6 +7,7 @@ class App extends React.Component {
     super();
 
     this.onInputChange = this.onInputChange.bind(this);
+    this.validationCheck = this.validationCheck.bind(this);
 
     this.state = {
       cardName: '',
@@ -15,7 +16,7 @@ class App extends React.Component {
       cardAttr2: '',
       cardAttr3: '',
       cardImage: '',
-      cardRare: '',
+      cardRare: 'normal',
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: true,
@@ -28,13 +29,42 @@ class App extends React.Component {
     console.log(name);
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({
+    this.setState(() => ({
       [name]: value,
-    });
+    }), () => this.validationCheck());
   }
 
-  isSaveButtonDisabled() {
-    if ()
+  validationCheck() {
+    const maxValue = 90;
+    const minValue = 0;
+    const sumValue = 210;
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
+      cardRare, isSaveButtonDisabled } = this.state;
+    console.log(isSaveButtonDisabled);
+    const atributte1 = parseInt(cardAttr1, 10);
+    const atributte2 = parseInt(cardAttr2, 10);
+    const atributte3 = parseInt(cardAttr3, 10);
+    const sumAttributs = atributte1 + atributte2 + atributte3;
+    if (
+      cardName === ''
+      || cardDescription === ''
+      || cardImage === ''
+      || cardRare === ''
+      || cardAttr1 < minValue
+      || cardAttr1 > maxValue
+      || cardAttr2 < minValue
+      || cardAttr2 > maxValue
+      || cardAttr3 < minValue
+      || cardAttr3 > maxValue
+      || sumAttributs > sumValue) {
+      this.setState({
+        isSaveButtonDisabled: true,
+      });
+    } else {
+      this.setState({
+        isSaveButtonDisabled: false,
+      });
+    }
   }
 
   render() {
