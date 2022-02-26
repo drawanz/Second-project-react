@@ -10,7 +10,6 @@ class App extends React.Component {
     this.validationCheck = this.validationCheck.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.handleHasTrunfo = this.handleHasTrunfo.bind(this);
-    // this.validationHasTrunfo = this.validationHasTrunfo.bind(this);
 
     this.state = {
       cardName: '',
@@ -33,10 +32,6 @@ class App extends React.Component {
       this.setState({
         hasTrunfo: true,
       });
-    // } else {
-    //   this.setState({
-    //     hasTrunfo: false,
-    //   });
     }
   }
 
@@ -109,13 +104,7 @@ class App extends React.Component {
         isSaveButtonDisabled: false,
       });
     }
-    // this.validationHasTrunfo();
   }
-
-  // validationHasTrunfo() {
-  //   const { hasTrunfo } = this.state;
-  //   console.log(hasTrunfo);
-  // }
 
   render() {
     const { cardName,
@@ -127,7 +116,9 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
-      isSaveButtonDisabled } = this.state;
+      isSaveButtonDisabled,
+      dates } = this.state;
+
     return (
       <div>
         <Form
@@ -154,6 +145,18 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+        {dates.map((card) => (
+          <Card
+            key={ card.cardName }
+            cardName={ card.cardName }
+            cardDescription={ card.cardDescription }
+            cardAttr1={ card.cardAttr1 }
+            cardAttr2={ card.cardAttr2 }
+            cardAttr3={ card.cardAttr3 }
+            cardImage={ card.cardImage }
+            cardRare={ card.cardRare }
+            cardTrunfo={ card.cardTrunfo }
+          />))}
       </div>
     );
   }
