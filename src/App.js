@@ -10,6 +10,7 @@ class App extends React.Component {
     this.validationCheck = this.validationCheck.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.handleHasTrunfo = this.handleHasTrunfo.bind(this);
+    this.deleteButton = this.deleteButton.bind(this);
 
     this.state = {
       cardName: '',
@@ -47,8 +48,9 @@ class App extends React.Component {
 
   onSaveButtonClick() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
-      cardRare, hasTrunfo } = this.state;
-    const objectDates = { cardName,
+      cardRare, hasTrunfo, cardTrunfo } = this.state;
+    const objectDates = {
+      cardName,
       cardDescription,
       cardAttr1,
       cardAttr2,
@@ -56,6 +58,7 @@ class App extends React.Component {
       cardImage,
       cardRare,
       hasTrunfo,
+      cardTrunfo,
     };
 
     this.setState((prevState) => ({
@@ -68,9 +71,15 @@ class App extends React.Component {
       cardAttr3: 0,
       cardImage: '',
       cardRare: 'normal',
+      cardTrunfo: false,
     }));
 
     this.handleHasTrunfo();
+  }
+
+  deleteButton() {
+    console.log('deletado');
+    // e.target.parentElement.childNodes[0].map((item) => console.log(item));
   }
 
   validationCheck() {
@@ -145,18 +154,28 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
-        {dates.map((card) => (
-          <Card
-            key={ card.cardName }
-            cardName={ card.cardName }
-            cardDescription={ card.cardDescription }
-            cardAttr1={ card.cardAttr1 }
-            cardAttr2={ card.cardAttr2 }
-            cardAttr3={ card.cardAttr3 }
-            cardImage={ card.cardImage }
-            cardRare={ card.cardRare }
-            cardTrunfo={ card.cardTrunfo }
-          />))}
+        {dates.map((card, index) => (
+          <div key={ index }>
+            <Card
+              cardName={ card.cardName }
+              cardDescription={ card.cardDescription }
+              cardAttr1={ card.cardAttr1 }
+              cardAttr2={ card.cardAttr2 }
+              cardAttr3={ card.cardAttr3 }
+              cardImage={ card.cardImage }
+              cardRare={ card.cardRare }
+              cardTrunfo={ card.cardTrunfo }
+              dates={ dates }
+              deleteButton={ this.deleteButton }
+            />
+            {/* <button
+              type="button"
+              onClick={ this.deleteButton }
+              data-testid="delete-button"
+            >
+              Excluir
+            </button> */}
+          </div>))}
       </div>
     );
   }
