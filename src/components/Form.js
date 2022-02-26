@@ -12,7 +12,7 @@ export default class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
@@ -54,6 +54,8 @@ export default class Form extends Component {
               type="number"
               data-testid="attr1-input"
               value={ cardAttr1 }
+              min={ 0 }
+              max={ 90 }
               onChange={ onInputChange }
             />
           </label>
@@ -66,6 +68,8 @@ export default class Form extends Component {
               type="number"
               data-testid="attr2-input"
               value={ cardAttr2 }
+              min={ 0 }
+              max={ 90 }
               onChange={ onInputChange }
             />
           </label>
@@ -78,6 +82,8 @@ export default class Form extends Component {
               type="number"
               data-testid="attr3-input"
               value={ cardAttr3 }
+              min={ 0 }
+              max={ 90 }
               onChange={ onInputChange }
             />
           </label>
@@ -110,17 +116,21 @@ export default class Form extends Component {
             </select>
           </label>
 
-          <label htmlFor="SuperTrunfo">
-            <input
-              name="cardTrunfo"
-              id="SuperTrunfo"
-              type="checkbox"
-              data-testid="trunfo-input"
-              checked={ cardTrunfo }
-              onChange={ onInputChange }
-            />
-            Super Trybe Trunfo
-          </label>
+          {hasTrunfo ? (
+            <p>Você já tem um Super Trunfo em seu baralho</p>
+          ) : (
+            <label htmlFor="SuperTrunfo">
+              <input
+                name="cardTrunfo"
+                id="SuperTrunfo"
+                type="checkbox"
+                data-testid="trunfo-input"
+                checked={ cardTrunfo }
+                onChange={ onInputChange }
+              />
+              Super Trybe Trunfo
+            </label>
+          )}
 
           <button
             type="button"
@@ -130,7 +140,6 @@ export default class Form extends Component {
           >
             Salvar
           </button>
-
         </form>
       </div>
     );
@@ -146,7 +155,7 @@ Form.propTypes = {
   cardImage: PropTypes.string,
   cardRare: PropTypes.string,
   cardTrunfo: PropTypes.bool,
-  // hasTrunfo: PropTypes.bool,
+  hasTrunfo: PropTypes.bool,
   isSaveButtonDisabled: PropTypes.bool,
   onInputChange: PropTypes.func,
   onSaveButtonClick: PropTypes.func,

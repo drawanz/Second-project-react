@@ -9,6 +9,8 @@ class App extends React.Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.validationCheck = this.validationCheck.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
+    this.handleHasTrunfo = this.handleHasTrunfo.bind(this);
+    // this.validationHasTrunfo = this.validationHasTrunfo.bind(this);
 
     this.state = {
       cardName: '',
@@ -25,6 +27,19 @@ class App extends React.Component {
     };
   }
 
+  handleHasTrunfo() {
+    const { cardTrunfo } = this.state;
+    if (cardTrunfo) {
+      this.setState({
+        hasTrunfo: true,
+      });
+    // } else {
+    //   this.setState({
+    //     hasTrunfo: false,
+    //   });
+    }
+  }
+
   onInputChange({ target }) {
     const { name } = target;
     console.log(name);
@@ -37,14 +52,16 @@ class App extends React.Component {
 
   onSaveButtonClick() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
-      cardRare } = this.state;
+      cardRare, hasTrunfo } = this.state;
     const objectDates = { cardName,
       cardDescription,
       cardAttr1,
       cardAttr2,
       cardAttr3,
       cardImage,
-      cardRare };
+      cardRare,
+      hasTrunfo,
+    };
 
     this.setState((prevState) => ({
       dates: [...prevState.dates, objectDates],
@@ -57,6 +74,8 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
     }));
+
+    this.handleHasTrunfo();
   }
 
   validationCheck() {
@@ -90,7 +109,13 @@ class App extends React.Component {
         isSaveButtonDisabled: false,
       });
     }
+    // this.validationHasTrunfo();
   }
+
+  // validationHasTrunfo() {
+  //   const { hasTrunfo } = this.state;
+  //   console.log(hasTrunfo);
+  // }
 
   render() {
     const { cardName,
