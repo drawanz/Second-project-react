@@ -8,6 +8,7 @@ class App extends React.Component {
 
     this.onInputChange = this.onInputChange.bind(this);
     this.validationCheck = this.validationCheck.bind(this);
+    this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
 
     this.state = {
       cardName: '',
@@ -20,7 +21,7 @@ class App extends React.Component {
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: true,
-      onSaveButtonClick: '', // funções para enviar como props, n esquecer de alterar
+      dates: [],
     };
   }
 
@@ -32,6 +33,30 @@ class App extends React.Component {
     this.setState(() => ({
       [name]: value,
     }), () => this.validationCheck());
+  }
+
+  onSaveButtonClick() {
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
+      cardRare } = this.state;
+    const objectDates = { cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare };
+
+    this.setState((prevState) => ({
+      dates: [...prevState.dates, objectDates],
+    }), () => this.setState({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardImage: '',
+      cardRare: 'normal',
+    }));
   }
 
   validationCheck() {
@@ -77,8 +102,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
-      isSaveButtonDisabled,
-      onSaveButtonClick } = this.state;
+      isSaveButtonDisabled } = this.state;
     return (
       <div>
         <Form
@@ -93,7 +117,7 @@ class App extends React.Component {
           hasTrunfo={ hasTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onInputChange={ this.onInputChange }
-          onSaveButtonClick={ onSaveButtonClick }
+          onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card
           cardName={ cardName }
