@@ -71,14 +71,26 @@ class App extends React.Component {
       cardAttr3: 0,
       cardImage: '',
       cardRare: 'normal',
-      cardTrunfo: false,
+      // cardTrunfo: false,
     }));
 
     this.handleHasTrunfo();
   }
 
-  deleteButton() {
-    console.log('deletado');
+  deleteButton(e) {
+    const { dates, cardTrunfo } = this.state;
+    console.log(e.target.parentNode.parentNode.id);
+    const t = dates.filter((item) => item !== dates[e.target.parentNode.parentNode.id]);
+    console.log(dates[e.target.parentNode.parentNode.id]);
+    this.setState({
+      dates: t,
+    });
+    if (cardTrunfo) {
+      this.setState({
+        hasTrunfo: false,
+        cardTrunfo: false,
+      });
+    }
     // e.target.parentElement.childNodes[0].map((item) => console.log(item));
   }
 
@@ -155,7 +167,7 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
         />
         {dates.map((card, index) => (
-          <div key={ index }>
+          <div key={ index } id={ index }>
             <Card
               cardName={ card.cardName }
               cardDescription={ card.cardDescription }
