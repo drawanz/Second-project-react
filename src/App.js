@@ -37,6 +37,7 @@ class App extends React.Component {
   }
 
   onInputChange({ target }) {
+    // const { dates } = this.state;
     const { name } = target;
     console.log(name);
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -61,6 +62,8 @@ class App extends React.Component {
       cardTrunfo,
     };
 
+    this.handleHasTrunfo();
+
     this.setState((prevState) => ({
       dates: [...prevState.dates, objectDates],
     }), () => this.setState({
@@ -71,10 +74,8 @@ class App extends React.Component {
       cardAttr3: 0,
       cardImage: '',
       cardRare: 'normal',
-      // cardTrunfo: false,
+      cardTrunfo: false,
     }));
-
-    this.handleHasTrunfo();
   }
 
   deleteButton(e) {
@@ -91,7 +92,6 @@ class App extends React.Component {
         cardTrunfo: false,
       });
     }
-    // e.target.parentElement.childNodes[0].map((item) => console.log(item));
   }
 
   validationCheck() {
@@ -143,6 +143,8 @@ class App extends React.Component {
     return (
       <div>
         <Form
+          hasTrunfo={ hasTrunfo }
+          dates={ dates }
           cardName={ cardName }
           cardDescription={ cardDescription }
           cardAttr1={ cardAttr1 }
@@ -151,7 +153,6 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
-          hasTrunfo={ hasTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ this.onSaveButtonClick }
@@ -180,13 +181,6 @@ class App extends React.Component {
               dates={ dates }
               deleteButton={ this.deleteButton }
             />
-            {/* <button
-              type="button"
-              onClick={ this.deleteButton }
-              data-testid="delete-button"
-            >
-              Excluir
-            </button> */}
           </div>))}
       </div>
     );

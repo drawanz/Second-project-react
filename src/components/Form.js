@@ -12,10 +12,11 @@ export default class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
+      hasTrunfo,
+      dates,
     } = this.props;
     console.log(cardName);
     return (
@@ -116,7 +117,8 @@ export default class Form extends Component {
             </select>
           </label>
 
-          {hasTrunfo ? (
+          {/* {dates.find((item) => item.cardTrunfo === true) ? ( */}
+          {hasTrunfo && dates.find((item) => item.cardTrunfo === true) ? (
             <p>Você já tem um Super Trunfo em seu baralho</p>
           ) : (
             <label htmlFor="SuperTrunfo">
