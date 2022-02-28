@@ -17,7 +17,7 @@ export default class Form extends Component {
       onSaveButtonClick,
       hasTrunfo,
       dates,
-      // filterNames,
+      filterRare,
       filterName,
     } = this.props;
     console.log(cardName);
@@ -157,25 +157,18 @@ export default class Form extends Component {
               onChange={ onInputChange }
             />
             <select
-              name="cardRare"
-              id="rareInput"
+              name="filterRare"
+              id="filterRareInput"
               type="text"
-              data-testid="rare-input"
               placeholder="Raridade"
-              value={ cardRare }
+              value={ filterRare }
               onChange={ onInputChange }
             >
+              <option value="" disabled selected>Raridade</option>
               <option value="normal">normal</option>
               <option value="raro">raro</option>
               <option value="muito raro">muito raro</option>
             </select>
-
-            {/* <button
-              type="button"
-              onClick={ filterNames }
-            >
-              Buscar
-            </button> */}
           </div>
         </form>
       </div>
