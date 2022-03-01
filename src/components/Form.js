@@ -19,6 +19,7 @@ export default class Form extends Component {
       dates,
       filterRare,
       filterName,
+      filterTrunfo,
     } = this.props;
     console.log(cardName);
     return (
@@ -119,7 +120,6 @@ export default class Form extends Component {
             </select>
           </label>
 
-          {/* {dates.find((item) => item.cardTrunfo === true) ? ( */}
           {hasTrunfo && dates.find((item) => item.cardTrunfo === true) ? (
             <p>Você já tem um Super Trunfo em seu baralho</p>
           ) : (
@@ -158,17 +158,28 @@ export default class Form extends Component {
             />
             <select
               name="filterRare"
-              id="filterRareInput"
+              data-testid="rare-filter"
               type="text"
               placeholder="Raridade"
               value={ filterRare }
               onChange={ onInputChange }
             >
-              <option value="" disabled selected>Raridade</option>
+              <option value="todas">todas</option>
               <option value="normal">normal</option>
               <option value="raro">raro</option>
               <option value="muito raro">muito raro</option>
             </select>
+            <label htmlFor="filterTrunfo">
+              <input
+                name="filterTrunfo"
+                id="filterTrunfo"
+                type="checkbox"
+                data-testid="trunfo-filter"
+                checked={ filterTrunfo }
+                onChange={ onInputChange }
+              />
+              Super Trybe Trunfo
+            </label>
           </div>
         </form>
       </div>

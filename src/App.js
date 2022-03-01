@@ -25,7 +25,8 @@ class App extends React.Component {
       isSaveButtonDisabled: true,
       dates: [],
       filterName: '',
-      filterRare: '',
+      filterRare: 'todas',
+      filterTrunfo: false,
     };
   }
 
@@ -137,7 +138,8 @@ class App extends React.Component {
       isSaveButtonDisabled,
       dates,
       filterName,
-      filterRare } = this.state;
+      filterRare,
+      filterTrunfo } = this.state;
 
     return (
       <div>
@@ -155,9 +157,9 @@ class App extends React.Component {
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ this.onSaveButtonClick }
-          handleFilter={ this.handleFilter }
           filterName={ filterName }
           filterRare={ filterRare }
+          filterTrunfo={ filterTrunfo }
         />
         <Card
           cardName={ cardName }
@@ -169,36 +171,30 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
-        {dates.filter((item) => item.cardName.includes(filterName)).map((card, index) => (
-          <div key={ index } id={ index }>
-            <Card
-              cardName={ card.cardName }
-              cardDescription={ card.cardDescription }
-              cardAttr1={ card.cardAttr1 }
-              cardAttr2={ card.cardAttr2 }
-              cardAttr3={ card.cardAttr3 }
-              cardImage={ card.cardImage }
-              cardRare={ card.cardRare }
-              cardTrunfo={ card.cardTrunfo }
-              dates={ dates }
-              deleteButton={ this.deleteButton }
-            />
-          </div>))}
-        {/* {dates.filter((item) => item.cardRare === filterRare).map((card, index) => (
-          <div key={ index } id={ index }>
-            <Card
-              cardName={ card.cardName }
-              cardDescription={ card.cardDescription }
-              cardAttr1={ card.cardAttr1 }
-              cardAttr2={ card.cardAttr2 }
-              cardAttr3={ card.cardAttr3 }
-              cardImage={ card.cardImage }
-              cardRare={ card.cardRare }
-              cardTrunfo={ card.cardTrunfo }
-              dates={ dates }
-              deleteButton={ this.deleteButton }
-            />
-          </div>))} */}
+        {dates.filter((item) => item.cardName.includes(filterName))
+          .filter((item) => {
+            if (filterRare === 'todas') return true; // esse "return true" eu aprendi olhando o código do nosso colega Heitor Tessaro, turma 19 C
+            return item.cardRare === filterRare;
+          })
+          .filter((item) => {
+            if (filterTrunfo) return item.cardTrunfo === true;
+            return true;
+          })
+          .map((card, index) => (
+            <div key={ index } id={ index }>
+              <Card
+                cardName={ card.cardName }
+                cardDescription={ card.cardDescription }
+                cardAttr1={ card.cardAttr1 }
+                cardAttr2={ card.cardAttr2 }
+                cardAttr3={ card.cardAttr3 }
+                cardImage={ card.cardImage }
+                cardRare={ card.cardRare }
+                cardTrunfo={ card.cardTrunfo }
+                dates={ dates }
+                deleteButton={ this.deleteButton }
+              />
+            </div>))}
       </div>
     );
   }
