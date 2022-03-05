@@ -13,12 +13,12 @@ class App extends React.Component {
     this.deleteButton = this.deleteButton.bind(this);
 
     this.state = {
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
-      cardImage: '',
+      cardName: '1',
+      cardDescription: '1',
+      cardAttr1: '1',
+      cardAttr2: '1',
+      cardAttr3: '1',
+      cardImage: '1',
       cardRare: 'normal',
       cardTrunfo: false,
       hasTrunfo: false,
@@ -81,7 +81,9 @@ class App extends React.Component {
 
   deleteButton(e) {
     const { dates, cardTrunfo } = this.state;
-    const t = dates.filter((item) => item !== dates[e.target.parentNode.parentNode.id]);
+    const t = dates.filter((item) => item
+      !== dates[e.target.parentNode.parentNode.parentNode.id]);
+
     this.setState({
       dates: t,
     });

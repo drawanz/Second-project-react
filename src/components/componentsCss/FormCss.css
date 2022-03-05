@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+  color: rgba(26, 24, 24, 0.794);
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+.div-form {
+  border: 2px solid black;
+  max-height: 800px;
+  max-width: 500px;
+}
+
+.div-form h4 {
+  margin-left: 10%;
+  margin-top: 10%;
+}
+
+form {
+  margin: 10%;
+  margin-right: 30%;
+}
+
+.div-description {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.div-description input, textarea {
+  border: none;
+  border-bottom: 0.05em solid rgba(26, 24, 24, 0.794);
+  display: block;
+  line-height: 150%;
+  margin-bottom: 1em;
+  margin-top: 2%;
+  width: 100%;
+}
+
+.div-atributos {
+  display: flex;
+  flex-flow: column wrap;
+  line-height: 1em;
+  margin: 0;
+  margin-top: 2%;
+}
+
+.div-atributos input {
+  margin-left: 0.6em;
+  width: 71%;
+}
+
+.div-imagem, .div-superTrunfo, .div-raridade {
+  margin-top: 4%;
+}
+
+.div-imagem input {
+  margin-top: 2%;
+  width: 100%;
+}
+
+.div-raridade select {
+  margin-left: 0.6em;
+}
+
+.div-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+button {
+  background-color: blue;
+  border-radius: 5%;
+  color: aliceblue;
+  padding: 0.25em 1.25em;
+}
+
