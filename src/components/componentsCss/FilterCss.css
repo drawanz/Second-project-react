@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+  color: rgba(26, 24, 24, 0.794);
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+.div-filtros {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 18%;
+}

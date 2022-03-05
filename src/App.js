@@ -1,6 +1,9 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+// eslint-disable-next-line no-unused-vars
+import AppCss from './components/componentsCss/AppCss.css';
+import Filter from './components/Filter';
 
 class App extends React.Component {
   constructor() {
@@ -13,12 +16,12 @@ class App extends React.Component {
     this.deleteButton = this.deleteButton.bind(this);
 
     this.state = {
-      cardName: '1',
-      cardDescription: '1',
+      cardName: 'Harry Potter',
+      cardDescription: 'Aquele que derrotou Você Sabe Quem',
       cardAttr1: '1',
       cardAttr2: '1',
       cardAttr3: '1',
-      cardImage: '1',
+      cardImage: 'https://i.pinimg.com/236x/dc/37/46/dc3746073ba303585e2b63d38d62bd90.jpg',
       cardRare: 'normal',
       cardTrunfo: false,
       hasTrunfo: false,
@@ -144,59 +147,74 @@ class App extends React.Component {
       filterTrunfo } = this.state;
 
     return (
-      <div>
-        <Form
-          hasTrunfo={ hasTrunfo }
-          dates={ dates }
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
-          onInputChange={ this.onInputChange }
-          onSaveButtonClick={ this.onSaveButtonClick }
-          filterName={ filterName }
-          filterRare={ filterRare }
-          filterTrunfo={ filterTrunfo }
-        />
-        <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-        />
-        {dates.filter((item) => item.cardName.includes(filterName))
-          .filter((item) => {
-            if (filterRare === 'todas') return true; // esse "return true" eu aprendi olhando o código do nosso colega Heitor Tessaro, turma 19 C
-            return item.cardRare === filterRare;
-          })
-          .filter((item) => {
-            if (filterTrunfo) return item.cardTrunfo === true;
-            return true;
-          })
-          .map((card, index) => (
-            <div key={ index } id={ index }>
-              <Card
-                cardName={ card.cardName }
-                cardDescription={ card.cardDescription }
-                cardAttr1={ card.cardAttr1 }
-                cardAttr2={ card.cardAttr2 }
-                cardAttr3={ card.cardAttr3 }
-                cardImage={ card.cardImage }
-                cardRare={ card.cardRare }
-                cardTrunfo={ card.cardTrunfo }
-                dates={ dates }
-                deleteButton={ this.deleteButton }
-              />
-            </div>))}
+      <div className="container">
+        <div className="form">
+          <Form
+            hasTrunfo={ hasTrunfo }
+            dates={ dates }
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
+            isSaveButtonDisabled={ isSaveButtonDisabled }
+            onInputChange={ this.onInputChange }
+            onSaveButtonClick={ this.onSaveButtonClick }
+            filterName={ filterName }
+            filterRare={ filterRare }
+            filterTrunfo={ filterTrunfo }
+          />
+
+          <Card
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
+          />
+        </div>
+
+        <div className="container-filter">
+          <Filter
+            onInputChange={ this.onInputChange }
+            filterName={ filterName }
+            filterRare={ filterRare }
+            filterTrunfo={ filterTrunfo }
+          />
+        </div>
+
+        <div className="saved-items">
+          {dates.filter((item) => item.cardName.includes(filterName))
+            .filter((item) => {
+              if (filterRare === 'todas') return true; // esse "return true" eu aprendi olhando o código do nosso colega Heitor Tessaro, turma 19 C
+              return item.cardRare === filterRare;
+            })
+            .filter((item) => {
+              if (filterTrunfo) return item.cardTrunfo === true;
+              return true;
+            })
+            .map((card, index) => (
+              <div key={ index } id={ index }>
+                <Card
+                  cardName={ card.cardName }
+                  cardDescription={ card.cardDescription }
+                  cardAttr1={ card.cardAttr1 }
+                  cardAttr2={ card.cardAttr2 }
+                  cardAttr3={ card.cardAttr3 }
+                  cardImage={ card.cardImage }
+                  cardRare={ card.cardRare }
+                  cardTrunfo={ card.cardTrunfo }
+                  dates={ dates }
+                  deleteButton={ this.deleteButton }
+                />
+              </div>))}
+        </div>
       </div>
     );
   }

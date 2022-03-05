@@ -7,37 +7,33 @@
 }
 
 section {
-  border: 2px solid red;
   max-height: fit-content;
-  max-width: 500px;
+  width: 18em;
 }
 
 .div-card {
-  background-color: #cdcdcd;
+  background-image: url('../../../images/pomoDouro.jpg');
   border: 1px solid rgb(97, 96, 96);
   border-radius: 3%;
   display: flex;
   flex-flow: column wrap;
-  margin: 10%;
-  margin-right: 30%;
-  max-height: fit-content;
+  max-height: 800px;
 }
 
 img {
   border: 1px solid rgb(97, 96, 96);
   border-radius: 3%;
-  margin-left: 5%;
-  margin-right: 5%;
-  max-height: 90%;
-  max-width: 90%;
+  height: 15em;
+  margin-left: 15%;
+  margin-right: 15%;
+  width: 70%;
 }
 
 .card-header {
   display: flex;
-  height: fit-content;
+  height: 1em;
   justify-content: center;
-  margin-bottom: 5%;
-  margin-top: 5%;
+  margin: 6%;
   overflow-wrap: break-word;
 }
 
@@ -53,15 +49,17 @@ img {
   background-color: #d9d9d9;
   border: 1px solid rgb(97, 96, 96);
   border-radius: 5px;
-  margin: 5%;
-  max-height: fit-content;
+  height: 3em;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
   max-width: 90%;
   overflow-wrap: break-word;
 }
 
 .description p {
   flex: 1;
-  margin: 2%;
+  margin: 1%;
 }
 
 .div-card-atributos {
@@ -71,19 +69,17 @@ img {
   height: fit-content;
   margin-left: 5%;
   margin-right: 5%;
+  margin-top: 2%;
 }
 
 .div-card-atributo {
   display: flex;
-  height: fit-content;
-  justify-content: space-between;
+  height: 1.5em;
   overflow-wrap: break-word;
 }
 
 .div-card-atributo p {
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-top: 2%;
+  margin: 1%;
 }
 
 .div-card-atributo div {
@@ -93,6 +89,7 @@ img {
 
 .div-raridade {
   display: flex;
+  height: 1em;
   justify-content: center;
   margin: 5%;
 }
@@ -102,7 +99,7 @@ img {
   background-color: #d9d9d9;
   border: 1px solid rgb(97, 96, 96);
   border-radius: 5px;
-  padding: 2% 8%;
+  padding: 1% 4%;
 }
 
 .raro {
@@ -110,7 +107,7 @@ img {
   background-color: #4527f1;
   border: 1px solid rgb(97, 96, 96);
   border-radius: 5px;
-  padding: 2% 8%;
+  padding: 1% 4%;
 }
 
 .raro p {
@@ -122,7 +119,7 @@ img {
   background-color: rgb(13, 73, 23);
   border: 1px solid rgb(97, 96, 96);
   border-radius: 5px;
-  padding: 2% 8%;
+  padding: 1% 4%;
 }
 
 .muito-raro p {
@@ -131,9 +128,10 @@ img {
 
 .super-trunfo {
   align-self: center;
+
+  /* stylelint-disable-next-line color-named */
   background-color: rgb(218, 165, 32);
   border: 1px solid rgb(97, 96, 96);
   border-radius: 5px;
-  margin-bottom: 4%;
-  padding: 2% 8%;
+  padding: 1% 4%;
 }

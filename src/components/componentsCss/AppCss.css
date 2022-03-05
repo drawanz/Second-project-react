@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  margin: 1%;
+}
+
+.form {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.saved-items {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 100%;
+}
+
+.saved-items div {
+  margin-top: 2%;
+}
+
+.container-filter {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background-image: url('../../../images/hp.jpg');
+}

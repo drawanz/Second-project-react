@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line no-unused-vars
 import CardCss from './componentsCss/CardCss.css';
 
 export default class Card extends Component {
@@ -32,24 +33,20 @@ export default class Card extends Component {
 
           <div className="div-card-atributos">
             <div className="div-card-atributo">
-              <p>Atrbibuto 1: </p>
-              <div />
+              <p>Habilidade: </p>
               <p data-testid="attr1-card">{cardAttr1}</p>
             </div>
             <div className="div-card-atributo">
-              <p>Atrbibuto 2: </p>
-              <div />
+              <p>Astúcia: </p>
               <p data-testid="attr2-card">{cardAttr2}</p>
             </div>
             <div className="div-card-atributo">
-              <p>Atrbibuto 3: </p>
-              <div />
+              <p>Popularidade: </p>
               <p data-testid="attr3-card">{cardAttr3}</p>
             </div>
           </div>
 
           <div className="div-raridade">
-
             { cardRare === 'normal'
               ? <div className="normal"><p data-testid="rare-card">Normal</p></div>
               : null }
@@ -59,14 +56,13 @@ export default class Card extends Component {
               : null }
 
             { cardRare === 'muito raro'
-              ? <div className="muito-raro"><p>Muito raro</p></div>
+              ? <div className="muito-raro"><span>Muito raro</span></div>
               : null }
 
+            {cardTrunfo === true
+              ? <div className="super-trunfo"><p>Super Trunfo</p></div>
+              : null}
           </div>
-
-          {cardTrunfo === true
-            ? <div className="super-trunfo"><p>Super Trunfo</p></div>
-            : null}
 
           {dates ? (
             <button

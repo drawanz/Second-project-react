@@ -7,14 +7,15 @@
 }
 
 .div-form {
-  border: 2px solid black;
+  background-image: url('../../../images/93-4.jpg');
+  border: 1px solid rgb(97, 96, 96);
+  border-radius: 10px;
   max-height: 800px;
   max-width: 500px;
 }
 
 .div-form h4 {
-  margin-left: 10%;
-  margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 form {
@@ -40,14 +41,13 @@ form {
 .div-atributos {
   display: flex;
   flex-flow: column wrap;
-  line-height: 1em;
+  line-height: 1.2em;
   margin: 0;
   margin-top: 2%;
 }
 
 .div-atributos input {
-  margin-left: 0.6em;
-  width: 71%;
+  width: 100%;
 }
 
 .div-imagem, .div-superTrunfo, .div-raridade {
@@ -75,4 +75,3 @@ button {
   color: aliceblue;
   padding: 0.25em 1.25em;
 }
-
