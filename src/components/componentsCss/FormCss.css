@@ -8,19 +8,28 @@
 
 .div-form {
   background-image: url('../../../images/93-4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   border: 1px solid rgb(97, 96, 96);
   border-radius: 10px;
   max-height: 800px;
   max-width: 500px;
+  width: 80%;
 }
 
 .div-form h4 {
+  color: #d9d9d9;
   margin-bottom: 10%;
 }
 
 form {
   margin: 10%;
   margin-right: 30%;
+}
+
+form label {
+  color: #d9d9d9;
+  font-weight: 700;
 }
 
 .div-description {

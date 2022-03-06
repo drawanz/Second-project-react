@@ -12,3 +12,18 @@
   justify-content: center;
   width: 18%;
 }
+
+.div-filtros h6, label {
+  color: white;
+  font-size: larger;
+}
+
+#nameFilter {
+  color: rgba(26, 24, 24, 0.794);
+  font-size: larger;
+}
+
+#selectFilter {
+  font-size: larger;
+}
+

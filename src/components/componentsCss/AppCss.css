@@ -8,18 +8,21 @@
 .form {
   display: flex;
   flex: 1;
-  justify-content: space-around;
+  justify-content: flex-start;
+  margin-left: 4%;
 }
 
 .saved-items {
   display: flex;
   flex: 1;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
+  margin: 1%;
   max-width: 100%;
 }
 
-.saved-items div {
+.saved-items > * {
+  margin-left: 1%;
   margin-top: 2%;
 }
 
@@ -29,5 +32,8 @@
 }
 
 body {
-  background-image: url('../../../images/hp.jpg');
+  background-color: black;
+  background-image: url('../../../images/quid.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
 }

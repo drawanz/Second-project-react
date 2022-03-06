@@ -16,12 +16,12 @@ class App extends React.Component {
     this.deleteButton = this.deleteButton.bind(this);
 
     this.state = {
-      cardName: 'Harry Potter',
-      cardDescription: 'Aquele que derrotou Você Sabe Quem',
-      cardAttr1: '1',
-      cardAttr2: '1',
-      cardAttr3: '1',
-      cardImage: 'https://i.pinimg.com/236x/dc/37/46/dc3746073ba303585e2b63d38d62bd90.jpg',
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '',
+      cardAttr2: '',
+      cardAttr3: '',
+      cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
       hasTrunfo: false,

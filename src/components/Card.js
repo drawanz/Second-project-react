@@ -66,6 +66,7 @@ export default class Card extends Component {
 
           {dates ? (
             <button
+              id="button-delete"
               type="button"
               onClick={ deleteButton }
               data-testid="delete-button"

@@ -12,7 +12,9 @@ section {
 }
 
 .div-card {
-  background-image: url('../../../images/pomoDouro.jpg');
+  background-image: url('../../../images/93-4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   border: 1px solid rgb(97, 96, 96);
   border-radius: 3%;
   display: flex;
@@ -24,9 +26,9 @@ img {
   border: 1px solid rgb(97, 96, 96);
   border-radius: 3%;
   height: 15em;
-  margin-left: 15%;
-  margin-right: 15%;
-  width: 70%;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
 }
 
 .card-header {
@@ -39,14 +41,15 @@ img {
 
 .card-header h4 {
   align-self: center;
-  background-color: #d9d9d9;
+  background-color: white;
   border: 1px solid rgb(97, 96, 96);
   border-radius: 5px;
+  margin-top: 5%;
   padding: 2% 8%;
 }
 
 .description {
-  background-color: #d9d9d9;
+  background-color: white;
   border: 1px solid rgb(97, 96, 96);
   border-radius: 5px;
   height: 3em;
@@ -63,10 +66,10 @@ img {
 }
 
 .div-card-atributos {
-  background-color: #d9d9d9;
+  background-color: white;
   border: 1px solid rgb(97, 96, 96);
   border-radius: 5px;
-  height: fit-content;
+  height: 6em;
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 2%;
@@ -94,9 +97,15 @@ img {
   margin: 5%;
 }
 
+/* stylelint-disable-next-line selector-max-specificity */
+#button-delete {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 .normal {
   align-self: center;
-  background-color: #d9d9d9;
+  background-color: white;
   border: 1px solid rgb(97, 96, 96);
   border-radius: 5px;
   padding: 1% 4%;

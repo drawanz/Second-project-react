@@ -19,6 +19,7 @@ export default class Filter extends Component {
           onChange={ onInputChange }
         />
         <select
+          id="selectFilter"
           name="filterRare"
           data-testid="rare-filter"
           type="text"
