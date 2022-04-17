@@ -35,5 +35,5 @@ body {
   background-color: black;
   background-image: url('../../../images/quid.jpg');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: contain; /* object-fit é melhor que o background-size */
 }
